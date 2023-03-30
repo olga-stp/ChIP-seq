@@ -8,5 +8,5 @@
   "aligner": "bwa-mem",
   "bwaIndex": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Mus_musculus/Ensembl/GRCm38/Sequence/BWAIndex/genome",                
   "spikeBwaIndex": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Homo_sapiens/Ensembl/GRCh38/Sequence/BWAIndex/genome",
-  "blacklist": "ENCFF547MET.merged.bed"
+  "blacklist": "ChIP-seq/ENCFF547MET.merged.bed"
 }
