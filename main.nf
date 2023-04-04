@@ -566,7 +566,7 @@ process bwaMem{
   """
   echo \$(bwa 2>&1) &> v_bwa.txt
   bwa mem -t ${task.cpus} \
-           ${index}/${genomeBase}.fa \
+           ${index}/${genomeBase} \
           ${opts} \
           $reads | samtools view -bS - > ${prefix}.bam
   getBWAstats.sh -i ${prefix}.bam -p ${task.cpus} > ${prefix}_bwa.log
