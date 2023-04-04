@@ -116,7 +116,7 @@ if (params.help){
   exit 0
 }
 
-if (params.aligner != 'bwa-mem' && params.aligner != 'star' && params.aligner != 'bowtie2' ) {
+if (params.aligner != 'bwa-mem') {
     exit 1, "Invalid aligner option: ${params.aligner}. Valid options: 'star', 'bowtie2' or 'bwa-mem'"
 }
 
