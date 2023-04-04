@@ -197,69 +197,7 @@ if (params.spikeBwaIndex){
   chBwaIndex = chBwaIndex.concat(chSpikeBwaIndex)
 }
 
-/*********************
- * Bowtie2 indexes
- */
 
-params.bt2Index = genomeRef ? params.genomes[ genomeRef ].bowtie2Index ?: false : false
-if (params.bt2Index){
-  lastPath = params.bt2Index.lastIndexOf(File.separator)
-  bt2Dir =  params.bt2Index.substring(0,lastPath+1)
-  bt2Base = params.bt2Index.substring(lastPath+1)
-  Channel
-    .fromPath(bt2Dir, checkIfExists: true)
-    .ifEmpty {exit 1, "Bowtie2 index file not found: ${params.bt2Index}"}
-    .map{ it -> [it, bt2Base, genomeRef] }
-    .set { chBt2Index }
-} else {
-  exit 1, "Bowtie2 index file not found: ${params.bt2Index}"
-}
-
-params.spikeBt2Index = params.spike ? params.genomes[ params.spike ].bowtie2Index ?: false : false
-if (params.spikeBt2Index){
-  lastPath = params.spikeBt2Index.lastIndexOf(File.separator)
-  bt2DirSpike =  params.spikeBt2Index.substring(0,lastPath+1)
-  spikeBt2Base = params.spikeBt2Index.substring(lastPath+1)
-  Channel
-    .fromPath(bt2DirSpike, checkIfExists: true)
-    .ifEmpty {exit 1, "Spike Bowtie2 index file not found: ${params.spikeBt2Index}"}
-    .map{ it -> [it, spikeBt2Base, params.spike] }
-    .set { chSpikeBt2Index }
-
-  chBt2Index = chBt2Index.concat(chSpikeBt2Index)
-}
-
-/********************
- * STAR indexes
- */
-
-params.starIndex = genomeRef ? params.genomes[ genomeRef ].starIndex ?: false : false
-if (params.starIndex){
-  Channel
-    .fromPath(params.starIndex, checkIfExists: true)
-    .ifEmpty {exit 1, "STAR index file not found: ${params.starIndex}"}
-    .combine( [ genomeRef ] ) 
-    .set { chStarIndex }
-} else {
-  exit 1, "STAR index file not found: ${params.starIndex}"
-}
-
-params.spikeStarIndex = params.spike ? params.genomes[ params.spike ].starIndex ?: false : false
-if (params.spikeStarIndex){
-  if (params.spike){
-    genomeSpike = params.spike
-  }else{
-    genomeSpike = 'spikeGenome'
-  }
-
-  Channel
-    .fromPath(params.spikeStarIndex, checkIfExists: true)
-    .ifEmpty {exit 1, "Spike STAR index file not found: ${params.spikeStarIndex}"}
-    .combine( [ genomeSpike ] )
-    .set { chSpikeStarIndex }
-
-  chStarIndex = chStarIndex.concat(chSpikeStarIndex)
-}
 
 /*********************
  * Annotations
