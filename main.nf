@@ -648,16 +648,10 @@ process star{
   """
 }
 
-if (params.aligner == "bowtie2"){
-  chAlignReads = chAlignReadsBowtie2
-  chMappingMqc = chBowtie2Mqc
-} else if (params.aligner == "bwa-mem"){
+if (params.aligner == "bwa-mem"){
   chAlignReads = chAlignReadsBwa
   chMappingMqc = chBwaMqc
-} else if (params.aligner == "star"){
-  chAlignReads = chAlignReadsStar
-  chMappingMqc = chStarMqc
-}
+} 
 
 
 if (params.inputBam){
