@@ -1583,8 +1583,6 @@ process getSoftwareVersions{
   input:
   file 'v_fastqc.txt' from chFastqcVersion.first().ifEmpty([])
   file 'v_bwa.txt' from chBwaVersion.first().ifEmpty([])
-  file 'v_bowtie2.txt' from chBowtie2Version.first().ifEmpty([])
-  file 'v_star.txt' from chStarVersion.first().ifEmpty([])
   file 'v_samtools.txt' from chSamtoolsVersionBamSort.concat(chSamtoolsVersionBamFiltering).first().ifEmpty([])
   file 'v_picard.txt' from chPicardVersion.first().ifEmpty([])
   file 'v_macs2.txt' from chMacs2VersionMacs2Sharp.concat(chMacs2VersionMacs2Broad).first().ifEmpty([])
