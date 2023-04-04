@@ -1,13 +1,5 @@
 {
   "genome": "GRCm38",
-  "fasta": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Mus_musculus/Ensembl/GRCm38/Sequence/WholeGenomeFasta/genome.fa",
-  "spikeFasta": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Homo_sapiens/Ensembl/GRCh38/Sequence/WholeGenomeFasta/genome.fa",
-  "geneBed": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Mus_musculus/Ensembl/GRCm38/Annotation/Genes/genes.bed",
-  "gtf": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Mus_musculus/Ensembl/GRCm38/Annotation/Genes/genes.gtf",
-  "effGenomeSize": 2652783500,
-  "aligner": "bwa-mem",
-  "bwaIndex": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Mus_musculus/Ensembl/GRCm38/Sequence/BWAIndex/genome.fa",                
-  "spikeBwaIndex": "/exports/igmm/eddie/BioinformaticsResources/igenomes/Homo_sapiens/Ensembl/GRCh38/Sequence/BWAIndex/genome",
-  "blacklist": "ChIP-seq/ENCFF547MET.merged.bed",
+  "spike":  "GRCh38", 
   "genomeAnnotationPath": "/exports/eddie/scratch/s1451126/resources"
 }
